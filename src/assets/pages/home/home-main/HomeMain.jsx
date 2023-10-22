@@ -14,13 +14,25 @@ const HomeMain = () => {
 						whileInView={'show'}
 						viewport={{ once: false, amount: 0.7 }}
 					>
+					Ваш бизнес в надежных руках !
+						
+					</motion.h1>
+					
+					<motion.p
+						variants={fadeIn('right', 0.2)}
+						initial='hidden'
+						whileInView={'show'}
+						viewport={{ once: false, amount: 0.7 }}
+					>
+						"Gennet" - 
 						<TypeAnimation
 							sequence={[
-								'СОЗДАЕМ СОВРЕМЕННОЕ',
+								' трансформация идеи в успешный проект.',
+								
 								2000,
-								'sdsdsdsds',
+								' инновации и качество в каждом пикселе.',
 								2000,
-								'sdsdsds',
+								' ваш шаг в цифровую эпоху.',
 								2000,
 							]}
 							speed={50}
@@ -28,14 +40,6 @@ const HomeMain = () => {
 							wrapper='span'
 							repeat={Infinity}
 						/>
-					</motion.h1>
-					<motion.p
-						variants={fadeIn('right', 0.2)}
-						initial='hidden'
-						whileInView={'show'}
-						viewport={{ once: false, amount: 0.7 }}
-					>
-						ПЕРЕЙДИ НА НОВЫЙ УРОВЕНЬ БИЗНЕСА
 					</motion.p>
 					<motion.div
 						variants={fadeIn('right', 0.4)}
