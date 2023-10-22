@@ -16,6 +16,7 @@
 }
 
 .home-inner h1 {
+	width: 484px;
 	color: #061b2e;
 	leading-trim: both;
 	text-edge: cap;
@@ -46,7 +47,7 @@
 	width: 471px;
 	position: absolute;
 	right: 1%;
-	top: 15%;
+	top: 5%;
 }
 
 .home-btn {
