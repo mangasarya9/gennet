@@ -5,6 +5,7 @@ import { CaseService } from '../../../services/case.service'
 
 import Case from './case/Case'
 import HomeMain from './home-main/HomeMain'
+import Stages from './stages/Stages'
 
 const Home = () => {
 	const [visibleProducts, setVisibleProducts] = useState(3)
@@ -30,6 +31,7 @@ const Home = () => {
 					visibleProducts={visibleProducts}
 					showMore={showMore}
 				/>
+				<Stages />
 			</div>
 		</div>
 	)

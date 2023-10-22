@@ -2,6 +2,7 @@ import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../variants'
+import '../home-main/HomeMain.css'
 
 const HomeMain = () => {
 	return (
@@ -14,20 +15,7 @@ const HomeMain = () => {
 						whileInView={'show'}
 						viewport={{ once: false, amount: 0.7 }}
 					>
-						<TypeAnimation
-							sequence={[
-								'СОЗДАЕМ СОВРЕМЕННОЕ',
-								2000,
-								'sdsdsdsds',
-								2000,
-								'sdsdsds',
-								2000,
-							]}
-							speed={50}
-							className='text-accent'
-							wrapper='span'
-							repeat={Infinity}
-						/>
+						Ваш бизнес в надежных руках !
 					</motion.h1>
 					<motion.p
 						variants={fadeIn('right', 0.2)}
@@ -35,7 +23,22 @@ const HomeMain = () => {
 						whileInView={'show'}
 						viewport={{ once: false, amount: 0.7 }}
 					>
-						ПЕРЕЙДИ НА НОВЫЙ УРОВЕНЬ БИЗНЕСА
+						"Gennet" -
+						<TypeAnimation
+							sequence={[
+								' трансформация идеи в успешный проект.',
+
+								2000,
+								' инновации и качество в каждом пикселе.',
+								2000,
+								' ваш шаг в цифровую эпоху.',
+								2000,
+							]}
+							speed={50}
+							className='text-accent'
+							wrapper='span'
+							repeat={Infinity}
+						/>
 					</motion.p>
 					<motion.div
 						variants={fadeIn('right', 0.4)}
