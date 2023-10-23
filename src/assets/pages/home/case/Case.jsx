@@ -7,7 +7,7 @@ const Case = ({ cars, visibleProducts, showMore }) => {
 		<div>
 			<div className='home-project'>
 				<motion.h2
-					variants={fadeIn('right', 0.2)}
+					variants={fadeIn('up', 0.2)}
 					initial='hidden'
 					whileInView={'show'}
 					viewport={{ once: false, amount: 0.7 }}
@@ -16,7 +16,7 @@ const Case = ({ cars, visibleProducts, showMore }) => {
 					Наши кейсы
 				</motion.h2>
 				<motion.p
-					variants={fadeIn('right', 0.2)}
+					variants={fadeIn('up', 0.2)}
 					initial='hidden'
 					whileInView={'show'}
 					viewport={{ once: false, amount: 0.7 }}
