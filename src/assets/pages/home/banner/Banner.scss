@@ -1,0 +1,137 @@
+.banner {
+	padding: 150px 0;
+	height: max-content;
+	display: grid;
+	gap: 30px;
+	grid-template-columns: 2fr 1fr;
+	&-inner {
+		& h1 {
+			color: #000000;
+			leading-trim: both;
+			text-edge: cap;
+			font-family: Inter;
+			font-size: 67px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			text-transform: uppercase;
+			margin-bottom: 46px;
+		}
+
+		& p {
+			color: #061b2e;
+			font-family: Gilroy;
+			font-size: 26px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			max-width: 583px;
+			margin-bottom: 46px;
+			text-transform: uppercase;
+		}
+	}
+	&-img {
+		background: url('/public/ill.png') center no-repeat;
+		height: 475px;
+		width: 471px;
+		margin: 70px 0 0;
+		background-size: cover;
+	}
+	&-btn {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			gap: 10px;
+		}
+	}
+}
+
+@media (max-width: 1181px) {
+	.banner {
+		display: block;
+		&-inner {
+			text-align: center;
+			& p {
+				margin: 0 auto 46px;
+			}
+			& h1 {
+				font-family: Inter;
+				font-size: 66px;
+				max-width: 680px;
+				margin: 0 auto 46px;
+			}
+		}
+		&-btn {
+			justify-content: center;
+		}
+		&-img {
+			margin: 46px auto 0;
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.banner {
+		height: max-content;
+		&-btn {
+			justify-content: center;
+		}
+		&-inner {
+			& h1 {
+				color: #000000;
+				leading-trim: both;
+				text-edge: cap;
+				font-family: Inter;
+				font-size: 50px;
+				margin: 0 auto 46px;
+			}
+			& p {
+				color: #061b2e;
+				font-family: Gilroy;
+				font-size: 18px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				max-width: 583px;
+			}
+		}
+	}
+}
+
+@media (max-width: 522px) {
+	.banner {
+		&-inner {
+			& p {
+				color: #061b2e;
+				font-family: Gilroy;
+				font-size: 15px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				max-width: 300px;
+				text-align: center;
+			}
+		}
+		&-img {
+			height: 305px;
+			width: 301px;
+		}
+	}
+}
+
+@media (max-width: 345px) {
+	.banner-inner h1 {
+		color: #000000;
+		leading-trim: both;
+		text-edge: cap;
+		font-family: Inter;
+		font-size: 40px;
+		margin: 0 auto 46px;
+	}
+	.banner-img {
+		height: 285px;
+		width: 281px;
+	}
+}

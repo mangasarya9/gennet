@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import './Home.css'
-
 import { CaseService } from '../../../services/case.service'
-
+import Banner from './banner/Banner'
 import Case from './case/Case'
-import HomeMain from './home-main/HomeMain'
 import Stages from './stages/Stages'
+import Request from './request/Request'
 
 const Home = () => {
 	const [visibleProducts, setVisibleProducts] = useState(3)
@@ -22,16 +20,18 @@ const Home = () => {
 		}
 		fetchData()
 	}, [])
+
 	return (
 		<div className='home'>
 			<div className='container'>
-				<HomeMain />
+				<Banner />
 				<Case
 					cars={cars}
 					visibleProducts={visibleProducts}
 					showMore={showMore}
 				/>
 				<Stages />
+				<Request />
 			</div>
 		</div>
 	)

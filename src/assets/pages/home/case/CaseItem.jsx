@@ -8,12 +8,12 @@ const CaseItem = ({ url, name, caseType }) => {
 			initial='hidden'
 			whileInView={'show'}
 			viewport={{ once: false, amount: 0.7 }}
-			className='home-case'
+			className='case-item'
 		>
-			<div className='home-overlay'></div>
-			<img className='home-case__img' src={url} alt='' />
-			<h3 className='home-case__type'>{caseType}</h3>
-			<p className='home-case__name'>{name}</p>
+			<div className='case-item__overlay'></div>
+			<img className='case-item__img' src={url} alt='' />
+			<h3 className='case-item__type'>{caseType}</h3>
+			<p className='case-item__name'>{name}</p>
 		</motion.div>
 	)
 }

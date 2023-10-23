@@ -1,0 +1,39 @@
+.request {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 30px;
+	margin: 50px 0;
+	& .title,
+	& .subtitle {
+		text-align: start;
+		max-width: 800px;
+		margin: 0;
+	}
+}
+
+@media (max-width: 1080px) {
+	.request {
+		display: block;
+		text-align: center;
+		margin: 50px 0;
+		& .title {
+			text-align: center;
+			max-width: 800px;
+			margin: 0 auto 10px;
+		}
+		& .subtitle {
+			margin: 0 auto 60px;
+			text-align: center;
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.request .title {
+		font-size: 38px;
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto 10px;
+	}
+}

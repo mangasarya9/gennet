@@ -1,0 +1,126 @@
+.case {
+	text-align: center;
+	margin: 0 0 50px;
+	&-title {
+		color: #000000;
+		leading-trim: both;
+		text-edge: cap;
+		font-family: Inter;
+		font-size: 46px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+	&-subtitle {
+		color: #061b2e;
+		leading-trim: both;
+		text-edge: cap;
+		font-family: Inter;
+		font-size: 20px;
+		font-style: normal;
+		line-height: normal;
+		text-transform: uppercase;
+	}
+	&-item {
+		border-radius: 20px;
+		overflow: hidden;
+		position: relative;
+		z-index: 10;
+		height: 470px;
+		background-color: #00000000;
+		&:hover &__overlay {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #00000034;
+			z-index: 40;
+		}
+		&:hover &__img {
+			transform: scale(1.25);
+		}
+		&:hover &__name,
+		&:hover &__type {
+			left: 24px;
+		}
+		&__img {
+			max-width: 100%;
+			height: 100%;
+			transition: all 0.5s ease-in-out;
+		}
+		&__type,
+		&__name {
+			position: absolute;
+			left: -500px;
+			z-index: 50;
+			color: #fff;
+		}
+		&__name {
+			bottom: 24px;
+			transition: all 0.7s ease-in-out;
+			font-size: 22px;
+		}
+		&__type {
+			bottom: 64px;
+			transition: all 0.5s ease-in-out;
+			font-size: 26px;
+		}
+	}
+	&-flex {
+		display: grid;
+		gap: 30px;
+		grid-template-columns: repeat(3, 1fr);
+		margin: 56px 0;
+	}
+}
+
+@media (max-width: 1180px) {
+	.case-flex {
+		display: grid;
+		gap: 30px;
+		grid-template-columns: repeat(2, 1fr);
+		margin: 56px auto;
+	}
+}
+
+@media (max-width: 769px) {
+	.case {
+		&-subtitle {
+			font-size: 20px;
+		}
+		&-flex {
+			display: grid;
+			gap: 30px;
+			grid-template-columns: minmax(290px, 390px);
+			justify-content: center;
+			margin: 56px auto;
+		}
+		&-item {
+			max-width: 390px;
+		}
+	}
+}
+
+@media (max-width: 522px) {
+	.case {
+		&-title {
+			font-size: 46px;
+		}
+		// &-flex {
+		// 	display: grid;
+		// 	gap: 30px;
+		// 	grid-template-columns: 1fr;
+		// 	justify-content: center;
+		// 	margin: 56px auto;
+		// }
+		// &-item {
+		// 	max-width: auto;
+		// 	height: 400px;
+		// }
+
+		&-subtitle {
+			font-size: 15px;
+		}
+	}
+}
