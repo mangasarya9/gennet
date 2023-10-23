@@ -36,22 +36,42 @@ const Stages = () => {
 					<div className='stages-line'></div>
 					<div>
 						<ul className='stages-icons'>
-							<li className='stages-item'>
-								<img className='stages-item__img' src='./check.png' alt='' />
+							<motion.li 
+							variants={fadeIn('right', 0.4)}
+							initial='hidden'
+							whileInView={'show'}
+							viewport={{ once: false, amount: 0.7 }}
+							className='stages-item'>
+								<img className='stages-item__img' src='./check.svg' alt='' />
 								<div className='stages-item__text'>Утверждение ТЗ</div>
-							</li>
-							<li className='stages-item'>
-								<img className='stages-item__img' src='./add.png' alt='' />
+							</motion.li>
+							<motion.li 
+							variants={fadeIn('right', 0.6)}
+							initial='hidden'
+							whileInView={'show'}
+							viewport={{ once: false, amount: 0.7 }}
+							className='stages-item'>
+								<img className='stages-item__img' src='./add.svg' alt='' />
 								<div className='stages-item__text'>Создание прототипа</div>
-							</li>
-							<li className='stages-item'>
-								<img className='stages-item__img' src='./code.png' alt='' />
+								</motion.li>
+								<motion.li 
+							variants={fadeIn('right', 0.8)}
+							initial='hidden'
+							whileInView={'show'}
+							viewport={{ once: false, amount: 0.7 }}
+							className='stages-item'>
+								<img className='stages-item__img' src='./code.svg' alt='' />
 								<div className='stages-item__text'>Разработка</div>
-							</li>
-							<li className='stages-item'>
+								</motion.li>
+								<motion.li 
+							variants={fadeIn('right', 1)}
+							initial='hidden'
+							whileInView={'show'}
+							viewport={{ once: false, amount: 0.7 }}
+							className='stages-item'>
 								<img className='stages-item__img' src='./speed.png' alt='' />
 								<div className='stages-item__text'>Оптимизация</div>
-							</li>
+								</motion.li>
 						</ul>
 					</div>
 				</motion.div>
