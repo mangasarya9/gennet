@@ -15,34 +15,20 @@ const HomeMain = () => {
 						whileInView={'show'}
 						viewport={{ once: false, amount: 0.7 }}
 					>
-<<<<<<< HEAD
 						Ваш бизнес в надежных руках !
 					</motion.h1>
-=======
-					Ваш бизнес в надежных руках !
-						
-					</motion.h1>
-					
->>>>>>> cc4f3a37d97c5dedb8ed45a9f5438c30c0eee85e
+
 					<motion.p
 						variants={fadeIn('right', 0.2)}
 						initial='hidden'
 						whileInView={'show'}
 						viewport={{ once: false, amount: 0.7 }}
 					>
-<<<<<<< HEAD
 						"Gennet" -
 						<TypeAnimation
 							sequence={[
 								' трансформация идеи в успешный проект.',
 
-=======
-						"Gennet" - 
-						<TypeAnimation
-							sequence={[
-								' трансформация идеи в успешный проект.',
-								
->>>>>>> cc4f3a37d97c5dedb8ed45a9f5438c30c0eee85e
 								2000,
 								' инновации и качество в каждом пикселе.',
 								2000,

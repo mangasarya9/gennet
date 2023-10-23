@@ -1,5 +1,4 @@
 .home {
-	padding: 100px 0 0;
 }
 
 .home-flex {
@@ -47,7 +46,7 @@
 	width: 471px;
 	position: absolute;
 	right: 1%;
-	top: 5%;
+	top: 15%;
 }
 
 .home-btn {
