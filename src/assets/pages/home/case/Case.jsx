@@ -3,8 +3,13 @@ import CaseItem from './CaseItem'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../variants'
 import '../case/Case.scss'
+import enTranslations from '/public/en/en.json'
+import ruTranslations from '/public/ru/ru.json'
+import { useLanguage } from '../../../../LanguageContext'
 
 const Case = ({ cars, visibleProducts, showMore }) => {
+	const { language } = useLanguage()
+	const translations = language === 'en' ? enTranslations : ruTranslations
 	return (
 		<div>
 			<div className='case'>
@@ -15,7 +20,7 @@ const Case = ({ cars, visibleProducts, showMore }) => {
 					viewport={{ once: false, amount: 0.7 }}
 					className='title'
 				>
-					Наши кейсы
+					{translations.caseTitle}
 				</motion.h2>
 				<motion.p
 					variants={fadeIn('up', 0.2)}
@@ -24,7 +29,7 @@ const Case = ({ cars, visibleProducts, showMore }) => {
 					viewport={{ once: false, amount: 0.7 }}
 					className='subtitle'
 				>
-					Готовы показать все то, что мы делали раньше
+					{translations.caseSubTitle}
 				</motion.p>
 				<div className='case-flex'>
 					{cars.slice(0, visibleProducts).map(car => (
@@ -46,7 +51,7 @@ const Case = ({ cars, visibleProducts, showMore }) => {
 						className='btn'
 						onClick={showMore}
 					>
-						Еще
+						{translations.more}
 					</motion.button>
 				)}
 			</div>

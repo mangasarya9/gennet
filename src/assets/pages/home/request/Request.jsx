@@ -2,8 +2,13 @@ import React from 'react'
 import '../request/Request.scss'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../variants'
+import enTranslations from '/public/en/en.json'
+import ruTranslations from '/public/ru/ru.json'
+import { useLanguage } from '../../../../LanguageContext'
 
 const Request = () => {
+	const { language } = useLanguage()
+	const translations = language === 'en' ? enTranslations : ruTranslations
 	return (
 		<div className='request'>
 			<div className=''>
@@ -14,7 +19,7 @@ const Request = () => {
 					viewport={{ once: false, amount: 0.7 }}
 					className='title request-title'
 				>
-					Технологии которые мы используем
+					{translations.requestTitle}
 				</motion.h2>
 				<motion.p
 					variants={fadeIn('right', 0.2)}
@@ -23,8 +28,7 @@ const Request = () => {
 					viewport={{ once: false, amount: 0.7 }}
 					className='subtitle request-subtitle'
 				>
-					Наши высококвалифицированные эксперты воплощают в жизнь передовые и
-					наиболее востребованные языки программирования
+					{translations.requestSubTitle}
 				</motion.p>
 			</div>
 			<motion.a
@@ -35,7 +39,7 @@ const Request = () => {
 				viewport={{ once: false, amount: 0.7 }}
 				className='btn'
 			>
-				Оставить заявку
+				{translations.LeaveArequest}
 			</motion.a>
 		</div>
 	)

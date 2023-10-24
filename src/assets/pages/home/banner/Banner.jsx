@@ -10,6 +10,7 @@ import { useLanguage } from '../../../../LanguageContext'
 const Banner = () => {
 	const { language } = useLanguage()
 	const translations = language === 'en' ? enTranslations : ruTranslations
+	const abs = language === 'en' ? 'en' : 'ru'
 
 	return (
 		<div className='banner'>
@@ -31,17 +32,11 @@ const Banner = () => {
 				>
 					<TypeAnimation
 						sequence={[
-							`${
-								language == 'ru'
-									? 'Gennet - трансформация идеи в успешный проект.'
-									: 'Gennet - transformation of an idea into a successful project.'
-							}`,
+							`${abs}`,
 							2000,
-							`${
-								language == 'ru'
-									? 'Gennet - инновации и качество в каждом пикселе.'
-									: 'Gennet - innovation and quality in every pixel.'
-							}`,
+							`${language == 'en' ? ' pixel.' : 'пикселе.'}`,
+							2000,
+							`${language == 'en' ? ' age.' : 'эпоху.'}`,
 							2000,
 						]}
 						speed={50}

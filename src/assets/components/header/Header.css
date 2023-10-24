@@ -93,9 +93,9 @@
 .dropdown {
 	position: relative;
 	display: inline-block;
-	background-color: #061b2e;
-	color: #fff;
-	padding: 5px 40px;
+	background-color: transparent;
+	color: #000000;
+	padding: 0 10px;
 	border-radius: 20px;
 	font-size: 20px;
 	-moz-appearance: none;
@@ -203,6 +203,7 @@
 
 	.dropdown {
 		margin-bottom: 100px;
+		color: #fff;
 	}
 
 	.dropdown-list {

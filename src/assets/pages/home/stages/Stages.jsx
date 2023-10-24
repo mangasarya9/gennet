@@ -2,8 +2,13 @@ import React from 'react'
 import '../stages/Stages.scss'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../variants'
+import enTranslations from '/public/en/en.json'
+import ruTranslations from '/public/ru/ru.json'
+import { useLanguage } from '../../../../LanguageContext'
 
 const Stages = () => {
+	const { language } = useLanguage()
+	const translations = language === 'en' ? enTranslations : ruTranslations
 	return (
 		<div className='stages'>
 			<div className='container'>
@@ -14,7 +19,7 @@ const Stages = () => {
 					viewport={{ once: false, amount: 0.7 }}
 					className='title'
 				>
-					Этапы создания проекта
+					{translations.stagesTitle}
 				</motion.h2>
 				<motion.p
 					variants={fadeIn('top', 0.2)}
@@ -23,8 +28,7 @@ const Stages = () => {
 					viewport={{ once: false, amount: 0.7 }}
 					className='subtitle'
 				>
-					Наша задача создать проект максимально быстро, поэтому мы оразбиваем
-					задачу на несколько этапов
+					{translations.stagesSubTitle}
 				</motion.p>
 				<motion.div
 					variants={fadeIn('right', 0.2)}
@@ -44,7 +48,9 @@ const Stages = () => {
 								className='stages-item'
 							>
 								<img className='stages-item__img' src='./check.svg' alt='' />
-								<div className='stages-item__text'>Утверждение ТЗ</div>
+								<div className='stages-item__text'>
+									{translations.statement}
+								</div>
 							</motion.li>
 							<motion.li
 								variants={fadeIn('right', 0.2)}
@@ -54,7 +60,9 @@ const Stages = () => {
 								className='stages-item'
 							>
 								<img className='stages-item__img' src='./add.svg' alt='' />
-								<div className='stages-item__text'>Создание прототипа</div>
+								<div className='stages-item__text'>
+									{translations.prototyping}
+								</div>
 							</motion.li>
 							<motion.li
 								variants={fadeIn('right', 0.2)}
@@ -64,7 +72,9 @@ const Stages = () => {
 								className='stages-item'
 							>
 								<img className='stages-item__img' src='./code.svg' alt='' />
-								<div className='stages-item__text'>Разработка</div>
+								<div className='stages-item__text'>
+									{translations.development}
+								</div>
 							</motion.li>
 							<motion.li
 								variants={fadeIn('right', 0.2)}
@@ -74,7 +84,9 @@ const Stages = () => {
 								className='stages-item'
 							>
 								<img className='stages-item__img' src='./speed.svg' alt='' />
-								<div className='stages-item__text'>Оптимизация</div>
+								<div className='stages-item__text'>
+									{translations.optimization}
+								</div>
 							</motion.li>
 						</ul>
 					</div>

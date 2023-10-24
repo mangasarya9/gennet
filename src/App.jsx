@@ -5,6 +5,7 @@ import News from './assets/pages/news/News'
 import Project from './assets/pages/project/Project'
 import { LanguageProvider } from './LanguageContext'
 import Header from './assets/components/header/Header'
+import Footer from './assets/components/footer/Footer'
 
 const App = () => {
 	return (
@@ -16,6 +17,7 @@ const App = () => {
 					<Route path='/project' element={<Project />} />
 					<Route path='/news' element={<News />} />
 				</Routes>
+				<Footer />
 			</LanguageProvider>
 		</div>
 	)

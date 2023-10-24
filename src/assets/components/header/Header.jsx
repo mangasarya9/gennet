@@ -53,8 +53,8 @@ export default function Header() {
 								id='language-select'
 								onChange={handleLanguageChange}
 							>
-								<option value='ru'>РУ</option>
-								<option value='en'>EN</option>
+								<option value='ru'>Русский</option>
+								<option value='en'>English</option>
 							</select>
 						</div>
 					</div>
