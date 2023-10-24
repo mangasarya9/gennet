@@ -1,26 +1,19 @@
 import { useState } from 'react'
-
 import './Header.css'
+import { useLanguage } from '../../../LanguageContext'
+import { Link } from 'react-router-dom'
+import enTranslations from '/public/en/en.json'
+import ruTranslations from '/public/ru/ru.json'
+
 export default function Header() {
-	const queryString = window.location.search
-	const urlParams = new URLSearchParams(queryString)
-	let paramValue = urlParams.get('lang')
-	paramValue == null ? (paramValue = 'RU') : (paramValue = paramValue)
-	const [isOpen, setIsOpen] = useState(false)
-	const [selectedOption, setSelectedOption] = useState(
-		paramValue == 'RU' ? 'Выберите язык' : 'Select Language'
-	)
 	const [burgerOpen, setBurgerMenu] = useState(false)
+	const { language, changeLanguage } = useLanguage()
+	const translations = language === 'en' ? enTranslations : ruTranslations
 
-	const options = ['RU', 'ENG']
+	console.log(language)
 
-	const toggleDropdown = () => {
-		setIsOpen(!isOpen)
-	}
-
-	const selectOption = option => {
-		setSelectedOption(option)
-		setIsOpen(false)
+	const handleLanguageChange = event => {
+		changeLanguage(event.target.value)
 	}
 
 	return (
@@ -38,45 +31,31 @@ export default function Header() {
 						<div className='header_content_links'>
 							<ul>
 								<li>
-									<a href='#'>{paramValue == 'RU' ? 'Главная' : 'Home'} </a>
+									<Link to='/'> {translations.home} </Link>
 								</li>
 								<li>
-									<a href='#'> {paramValue == 'RU' ? 'О нас' : 'About'} </a>
+									<Link to='/about'> {translations.about} </Link>
 								</li>
 								<li>
-									<a href='#'>
-										{paramValue == 'RU' ? 'Портфолио' : 'Portfolio'}{' '}
-									</a>
+									<Link to='/profile'>{translations.portfolio}</Link>
 								</li>
 								<li>
-									<a href='#'>
-										{paramValue == 'RU' ? 'Почему мы?' : 'Why us?'}
-									</a>
+									<Link to='/new'>{translations.news}</Link>
 								</li>
 								<li>
-									<a href='#'>
-										{paramValue == 'RU' ? 'Оставить заявку ' : 'Leave Comment'}{' '}
-									</a>
+									<a href='#'>{translations.LeaveArequest}</a>
 								</li>
 							</ul>
 						</div>
-						<div className='dropdown'>
-							<button onClick={toggleDropdown} className='dropdown-button'>
-								{selectedOption}
-							</button>
-							{isOpen && (
-								<ul className='dropdown-list'>
-									{options.map((option, index) => (
-										<li
-											key={index}
-											onClick={() => selectOption(option)}
-											className={paramValue == option ? 'active' : ''}
-										>
-											{option}
-										</li>
-									))}
-								</ul>
-							)}
+						<div>
+							<select
+								className='dropdown'
+								id='language-select'
+								onChange={handleLanguageChange}
+							>
+								<option value='ru'>РУ</option>
+								<option value='en'>EN</option>
+							</select>
 						</div>
 					</div>
 					<div

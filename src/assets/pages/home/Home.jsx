@@ -4,6 +4,8 @@ import Banner from './banner/Banner'
 import Case from './case/Case'
 import Stages from './stages/Stages'
 import Request from './request/Request'
+import AutoPlay from './auto-play/AutoPlay'
+import Contact from './contact/Contact'
 
 const Home = () => {
 	const [visibleProducts, setVisibleProducts] = useState(3)
@@ -32,6 +34,8 @@ const Home = () => {
 				/>
 				<Stages />
 				<Request />
+				<AutoPlay />
+				<Contact />
 			</div>
 		</div>
 	)

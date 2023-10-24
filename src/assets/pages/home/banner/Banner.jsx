@@ -3,8 +3,14 @@ import '../banner/Banner.scss'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../variants'
 import { TypeAnimation } from 'react-type-animation'
+import enTranslations from '/public/en/en.json'
+import ruTranslations from '/public/ru/ru.json'
+import { useLanguage } from '../../../../LanguageContext'
 
 const Banner = () => {
+	const { language } = useLanguage()
+	const translations = language === 'en' ? enTranslations : ruTranslations
+
 	return (
 		<div className='banner'>
 			<div className='banner-inner'>
@@ -14,7 +20,7 @@ const Banner = () => {
 					whileInView={'show'}
 					viewport={{ once: false, amount: 0.7 }}
 				>
-					Ваш бизнес в надежных руках !
+					{translations.bannerTitle}
 				</motion.h1>
 
 				<motion.p
@@ -25,12 +31,17 @@ const Banner = () => {
 				>
 					<TypeAnimation
 						sequence={[
-							'"Gennet" - трансформация идеи в успешный проект.',
-
+							`${
+								language == 'ru'
+									? 'Gennet - трансформация идеи в успешный проект.'
+									: 'Gennet - transformation of an idea into a successful project.'
+							}`,
 							2000,
-							'"Gennet" - инновации и качество в каждом пикселе.',
-							2000,
-							'"Gennet" - ваш шаг в цифровую эпоху.',
+							`${
+								language == 'ru'
+									? 'Gennet - инновации и качество в каждом пикселе.'
+									: 'Gennet - innovation and quality in every pixel.'
+							}`,
 							2000,
 						]}
 						speed={50}
@@ -46,7 +57,7 @@ const Banner = () => {
 					viewport={{ once: false, amount: 0.7 }}
 					className='banner-btn'
 				>
-					<a href='#'>ЗАПУСТИТ ПРОЕКТ</a>
+					<a href='#'>{translations.btn}</a>
 					<span>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
