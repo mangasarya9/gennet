@@ -6,14 +6,27 @@ import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
 
 export default function Header() {
-	const [burgerOpen, setBurgerMenu] = useState(false)
 	const { language, changeLanguage } = useLanguage()
-	const translations = language === 'en' ? enTranslations : ruTranslations
+	const translations = language === 'ru' ? ruTranslations : enTranslations
+	const [isOpen, setIsOpen] = useState(false)
+	const [selectedOption, setSelectedOption] = useState(
+		language == 'ru' ? 'Выберите язык' : 'Select Language'
+	)
+
+	const options = ['Русский', 'English']
+	const [burgerOpen, setBurgerMenu] = useState(false)
 
 	console.log(language)
 
-	const handleLanguageChange = event => {
-		changeLanguage(event.target.value)
+	const toggleDropdown = () => {
+		setIsOpen(!isOpen)
+	}
+
+	const selectOption = (language, option) => {
+		changeLanguage(language)
+		const newURL = `?lang=${language}`
+		setSelectedOption(option)
+		setIsOpen(false)
 	}
 
 	return (
@@ -48,14 +61,27 @@ export default function Header() {
 							</ul>
 						</div>
 						<div>
-							<select
-								className='dropdown'
-								id='language-select'
-								onChange={handleLanguageChange}
-							>
-								<option value='ru'>Русский</option>
-								<option value='en'>English</option>
-							</select>
+							<div className='dropdown'>
+								<button onClick={toggleDropdown} className='dropdown-button'>
+									{selectedOption}
+								</button>
+								{isOpen && (
+									<ul className='dropdown-list'>
+										<li
+											value='ru'
+											onClick={() => selectOption('ru', 'Русский')}
+										>
+											Русский
+										</li>
+										<li
+											value='en'
+											onClick={() => selectOption('en', 'English')}
+										>
+											English
+										</li>
+									</ul>
+								)}
+							</div>
 						</div>
 					</div>
 					<div
