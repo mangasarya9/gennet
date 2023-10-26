@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../variants'
-const CaseItem = ({ url, name, caseType }) => {
+const CaseItem = ({ url, name }) => {
 	return (
 		<motion.div
 			variants={fadeIn('left', 0.2)}
@@ -12,7 +12,6 @@ const CaseItem = ({ url, name, caseType }) => {
 		>
 			<div className='case-item__overlay'></div>
 			<img className='case-item__img' src={url} alt='' />
-			<h3 className='case-item__type'>{caseType}</h3>
 			<p className='case-item__name'>{name}</p>
 		</motion.div>
 	)

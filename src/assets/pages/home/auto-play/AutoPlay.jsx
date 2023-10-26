@@ -10,8 +10,9 @@ const AutoPlay = () => {
 		slidesToShow: 9,
 		slidesToScroll: 1,
 		autoplay: true,
-		speed: 1000,
-		autoplaySpeed: 1000,
+		speed: 700,
+		swipeToSlide: true,
+		autoplaySpeed: 700,
 		responsive: [
 			{
 				breakpoint: 980,

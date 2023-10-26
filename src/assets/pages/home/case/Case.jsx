@@ -7,7 +7,7 @@ import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
 import { useLanguage } from '../../../../LanguageContext'
 
-const Case = ({ cars, visibleProducts, showMore }) => {
+const Case = ({ caseData, visibleProducts, showMore }) => {
 	const { language } = useLanguage()
 	const translations = language === 'en' ? enTranslations : ruTranslations
 	return (
@@ -32,17 +32,12 @@ const Case = ({ cars, visibleProducts, showMore }) => {
 					{translations.caseSubTitle}
 				</motion.p>
 				<div className='case-flex'>
-					{cars.slice(0, visibleProducts).map(car => (
-						<CaseItem
-							key={car.id}
-							name={car.name}
-							caseType={car.caseType}
-							url={car.image}
-						/>
+					{caseData.map((data, index) => (
+						<CaseItem key={index} name={data.name} url={data.image} />
 					))}
 				</div>
 
-				{visibleProducts < cars.length && (
+				{visibleProducts < caseData.length && (
 					<motion.button
 						variants={fadeIn('top', 0.3)}
 						initial='hidden'

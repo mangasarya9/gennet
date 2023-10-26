@@ -42,21 +42,31 @@ export default function Header() {
 						}
 					>
 						<div className='header_content_links'>
-							<ul>
-								<li>
-									<Link to='/'> {translations.home} </Link>
+							<ul className='links-ul'>
+								<li className='links-li'>
+									<Link className='links-a' to='/'>
+										{translations.home}
+									</Link>
 								</li>
-								<li>
-									<Link to='/about'> {translations.about} </Link>
+								<li className='links-li'>
+									<Link className='links-a' to='/about'>
+										{translations.about}
+									</Link>
 								</li>
-								<li>
-									<Link to='/profile'>{translations.portfolio}</Link>
+								<li className='links-li'>
+									<Link className='links-a' to='/portfolio'>
+										{translations.portfolio}
+									</Link>
 								</li>
-								<li>
-									<Link to='/new'>{translations.news}</Link>
+								<li className='links-li'>
+									<Link className='links-a' to='/new'>
+										{translations.news}
+									</Link>
 								</li>
-								<li>
-									<a href='#'>{translations.LeaveArequest}</a>
+								<li className='links-li'>
+									<a className='links-a' href='#'>
+										{translations.LeaveArequest}
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -70,12 +80,14 @@ export default function Header() {
 										<li
 											value='ru'
 											onClick={() => selectOption('ru', 'Русский')}
+											className={language == 'ru' ? 'active' : ''}
 										>
 											Русский
 										</li>
 										<li
 											value='en'
 											onClick={() => selectOption('en', 'English')}
+											className={language == 'en' ? 'active' : ''}
 										>
 											English
 										</li>

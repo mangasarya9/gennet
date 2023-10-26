@@ -2,15 +2,14 @@ import React from 'react'
 import '../banner/Banner.scss'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../variants'
-import { TypeAnimation } from 'react-type-animation'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
 import { useLanguage } from '../../../../LanguageContext'
+import { Typewriter } from 'react-simple-typewriter'
 
 const Banner = () => {
 	const { language } = useLanguage()
 	const translations = language === 'en' ? enTranslations : ruTranslations
-	const abs = language === 'en' ? 'en' : 'ru'
 
 	return (
 		<div className='banner'>
@@ -30,20 +29,36 @@ const Banner = () => {
 					whileInView={'show'}
 					viewport={{ once: false, amount: 0.7 }}
 				>
-					<TypeAnimation
-						sequence={[
-							`${abs}`,
-							2000,
-							`${language == 'en' ? ' pixel.' : 'пикселе.'}`,
-							2000,
-							`${language == 'en' ? ' age.' : 'эпоху.'}`,
-							2000,
-						]}
-						speed={50}
-						className='text-accent'
-						wrapper='span'
-						repeat={Infinity}
-					/>
+					Gennet
+					{language === 'en' ? (
+						<Typewriter
+							words={[
+								'- transformation of an idea into a successful project.',
+								'- innovation and quality in every pixel.',
+								'- is your step into the digital age.',
+							]}
+							loop={Infinity}
+							cursor
+							cursorStyle='|'
+							typeSpeed={70}
+							deleteSpeed={50}
+							delaySpeed={1000}
+						/>
+					) : (
+						<Typewriter
+							words={[
+								' - трансформация идеи в успешный проект.',
+								' - инновации и качество в каждом пикселе.',
+								' - ваш шаг в цифровую эпоху.',
+							]}
+							loop={5}
+							cursor
+							cursorStyle='|'
+							typeSpeed={70}
+							deleteSpeed={50}
+							delaySpeed={1000}
+						/>
+					)}
 				</motion.p>
 				<motion.div
 					variants={fadeIn('right', 0.4)}
@@ -56,13 +71,13 @@ const Banner = () => {
 					<span>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
-							width='10'
-							height='16'
-							viewBox='0 0 10 16'
+							width='7'
+							height='10'
+							viewBox='0 0 7 10'
 							fill='none'
 						>
 							<path
-								d='M8.70664 7.29377C9.09727 7.6844 9.09727 8.31877 8.70664 8.7094L3.70664 13.7094C3.31602 14.1 2.68164 14.1 2.29102 13.7094C1.90039 13.3188 1.90039 12.6844 2.29102 12.2938L6.58477 8.00002L2.29414 3.70627C1.90352 3.31565 1.90352 2.68127 2.29414 2.29065C2.68477 1.90002 3.31914 1.90002 3.70977 2.29065L8.70977 7.29065L8.70664 7.29377Z'
+								d='M6.70859 4.41169C7.09922 4.73708 7.09922 5.26552 6.70859 5.59091L1.70859 9.75595C1.31797 10.0813 0.683594 10.0813 0.292969 9.75595C-0.0976562 9.43056 -0.0976562 8.90212 0.292969 8.57673L4.58672 5L0.296094 1.42327C-0.0945313 1.09788 -0.0945313 0.569439 0.296094 0.244045C0.686719 -0.0813484 1.32109 -0.0813484 1.71172 0.244045L6.71172 4.40908L6.70859 4.41169Z'
 								fill='#061B2E'
 							/>
 						</svg>
