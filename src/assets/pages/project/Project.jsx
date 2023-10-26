@@ -23,10 +23,10 @@ const Project = ({ caseData }) => {
 			label: 'Flutter',
 		},
 	]
+
 	const filterCase = selectedCategory
 		? caseData.filter(data => data.languages[0] === selectedCategory.value)
 		: caseData
-	console.log(lang)
 	const { language } = useLanguage()
 	const translations = language === 'ru' ? ruTranslations : enTranslations
 

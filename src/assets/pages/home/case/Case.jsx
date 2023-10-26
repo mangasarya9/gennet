@@ -32,8 +32,12 @@ const Case = ({ caseData, visibleProducts, showMore }) => {
 					{translations.caseSubTitle}
 				</motion.p>
 				<div className='case-flex'>
-					{caseData.map((data, index) => (
-						<CaseItem key={index} name={data.name} url={data.image} />
+					{caseData.slice(0, visibleProducts).map(data => (
+						<CaseItem
+							key={data.id}
+							name={data.name}
+							url={data.images[0]}
+						/>
 					))}
 				</div>
 
