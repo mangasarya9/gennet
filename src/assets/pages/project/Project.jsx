@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
@@ -6,27 +6,24 @@ import { useLanguage } from '../../../LanguageContext'
 import './Project.scss'
 import CaseItem from '../home/case/CaseItem'
 import Select from 'react-select'
+import { Services } from '../../../services/services'
 
 const Project = ({ caseData }) => {
-	const [selectedCategory, setSelectedCategory] = useState(null)
-	const categoryOptions = [
-		{
-			value: 'react js',
-			label: 'React Js',
-		},
-		{
-			value: 'caravel',
-			label: 'Caravel',
-		},
-		{
-			value: 'flutter',
-			label: 'Flutter',
-		},
-	]
+	const [filteredData, setFilteredData] = useState([])
+	const [filteredDataLanguage, setFilteredDataLanguage] = useState([])
 
-	const filterCase = selectedCategory
-		? caseData.filter(data => data.languages[0] === selectedCategory.value)
-		: caseData
+	useEffect(() => {
+		const fetchData = async () => {
+			const filteredData = await Services.filterData()
+			const filteredDataLanguage = await Services.filterDataLanguage()
+
+			setFilteredData(filteredData)
+			setFilteredDataLanguage(filteredDataLanguage)
+		}
+		fetchData()
+	}, [])
+	const [selectedCategory, setSelectedCategory] = useState(null)
+	const categoryOptions = filteredDataLanguage.map(lang => lang)
 	const { language } = useLanguage()
 	const translations = language === 'ru' ? ruTranslations : enTranslations
 
@@ -58,7 +55,7 @@ const Project = ({ caseData }) => {
 				</div>
 
 				<div className='case-flex'>
-					{filterCase.map((data, index) => (
+					{filteredData.map((data, index) => (
 						<CaseItem key={index} name={data.name} url={data.images[0]} />
 					))}
 				</div>
