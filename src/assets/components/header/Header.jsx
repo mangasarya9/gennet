@@ -16,7 +16,7 @@ export default function Header() {
 	const options = ['Русский', 'English']
 	const [burgerOpen, setBurgerMenu] = useState(false)
 
-	console.log(language)
+	
 
 	const toggleDropdown = () => {
 		setIsOpen(!isOpen)

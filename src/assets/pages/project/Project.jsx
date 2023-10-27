@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
@@ -7,26 +7,61 @@ import './Project.scss'
 import CaseItem from '../home/case/CaseItem'
 import Select from 'react-select'
 import { Services } from '../../../services/services'
+import axios from 'axios'
 
 const Project = ({ caseData }) => {
 	const [filteredData, setFilteredData] = useState([])
 	const [filteredDataLanguage, setFilteredDataLanguage] = useState([])
+	const [selectedCategory, setSelectedCategory] = useState([])
+	const prevSelectedCategoryRef = useRef();
 
 	useEffect(() => {
+		prevSelectedCategoryRef.current = selectedCategory;
+	  });
+	  const prevSelectedCategory = prevSelectedCategoryRef.current;
+	useEffect(() => {
 		const fetchData = async () => {
-			const filteredData = await Services.filterData()
+			const anunhavai = await Services.filterData()
 			const filteredDataLanguage = await Services.filterDataLanguage()
-
-			setFilteredData(filteredData)
+			
+			setFilteredData(anunhavai)
 			setFilteredDataLanguage(filteredDataLanguage)
 		}
 		fetchData()
 	}, [])
-	const [selectedCategory, setSelectedCategory] = useState(null)
-	const categoryOptions = filteredDataLanguage.map(lang => lang)
+	useEffect(() => {
+		const fetchData = async () => {
+		  try {
+			const languages = selectedCategory.map(item => item.value); 
+			
+			const response = await axios.post('http://menua7u0.beget.tech/api/projects/filter', {
+				languages:languages
+			});
+			
+			setFilteredData(response.data.data);
+			console.log(filteredData); // Replace with actual data path
+
+			
+		  } catch (error) {
+			console.error('Failed to fetch data:', error);
+		  }
+		};
+	
+		if (prevSelectedCategory && selectedCategory.length < prevSelectedCategory.length) {
+			fetchData();
+		  }
+		if (selectedCategory.length > 0) { // Replace with your condition
+		  fetchData();
+		}
+	
+	  }, [selectedCategory]);
+	
+	const categoryOptions = filteredDataLanguage.map(category => ({
+		value: category,
+		label: category
+	  }));
 	const { language } = useLanguage()
 	const translations = language === 'ru' ? ruTranslations : enTranslations
-
 	const selectPlaceholder =
 		language === 'ru' ? 'Сортировка по языкам' : 'Sorting by language'
 	return (
@@ -45,10 +80,19 @@ const Project = ({ caseData }) => {
 				<div className='flex'>
 					<Select
 						options={categoryOptions}
-						isClearable
+						
+						isMulti
+						
 						placeholder={selectPlaceholder}
 						className='select'
-						onChange={categoryOption => setSelectedCategory(categoryOption)}
+						onChange={(categoryOption) => {
+							// Check if categoryOption is not null (i.e., some option is selected)
+							if (categoryOption) {
+							  setSelectedCategory(categoryOption);
+							} else {
+							  setSelectedCategory([]);
+							}
+						  }}
 						value={selectedCategory}
 						isSearchable={false}
 					/>
