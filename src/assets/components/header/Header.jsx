@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import './Header.css'
 import { useLanguage } from '../../../LanguageContext'
-import { Link } from 'react-router-dom'
+import { Link  , useLocation} from 'react-router-dom'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
 
 export default function Header() {
+	const location = useLocation();
+	const isActivePortfolio = location.pathname === '/portfolio';
+	const isActiveHome = location.pathname === '/';
+	const isActiveAbout = location.pathname === '/about';
+	const isActiveNews = location.pathname === '/news';
 	const { language, changeLanguage } = useLanguage()
 	const translations = language === 'ru' ? ruTranslations : enTranslations
 	const [isOpen, setIsOpen] = useState(false)
@@ -44,22 +49,22 @@ export default function Header() {
 						<div className='header_content_links'>
 							<ul className='links-ul'>
 								<li className='links-li'>
-									<Link className='links-a' to='/'>
+									<Link  className={`links-a ${isActiveHome ? 'active' : ''}`} to='/'>
 										{translations.home}
 									</Link>
 								</li>
 								<li className='links-li'>
-									<Link className='links-a' to='/about'>
+									<Link  className={`links-a ${isActiveAbout ? 'active' : ''}`} to='/about'>
 										{translations.about}
 									</Link>
 								</li>
 								<li className='links-li'>
-									<Link className='links-a' to='/portfolio'>
+									<Link  className={`links-a ${isActivePortfolio ? 'active' : ''}`} to='/portfolio'>
 										{translations.portfolio}
 									</Link>
 								</li>
 								<li className='links-li'>
-									<Link className='links-a' to='/new'>
+									<Link className={`links-a ${isActiveNews ? 'active' : ''}`} to='/news'>
 										{translations.news}
 									</Link>
 								</li>

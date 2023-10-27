@@ -71,6 +71,18 @@ a {
 	animation: link_hover 1.5s;
 	transition: all 0.3s ease-in-out;
 }
+.links-a.active::after {
+	content: '';
+	width: 100%;
+	position: absolute;
+	height: 2px;
+	background: #061b2e;
+	top: 25px;
+	left: 0;
+	display: block;
+	animation: link_hover 1.5s;
+	transition: all 0.3s ease-in-out;
+}
 
 @keyframes link_hover {
 	0% {
