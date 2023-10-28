@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import './Header.css'
 import { useLanguage } from '../../../LanguageContext'
-import { Link  , useLocation} from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
 
-export default function Header() {
-	const location = useLocation();
-	const isActivePortfolio = location.pathname === '/portfolio';
-	const isActiveHome = location.pathname === '/';
-	const isActiveAbout = location.pathname === '/about';
-	const isActiveNews = location.pathname === '/news';
+export default function Header({ setPopupOpen }) {
+	const location = useLocation()
+	const isActivePortfolio = location.pathname === '/portfolio'
+	const isActiveHome = location.pathname === '/'
+	const isActiveAbout = location.pathname === '/about'
+	const isActiveNews = location.pathname === '/news'
 	const { language, changeLanguage } = useLanguage()
 	const translations = language === 'ru' ? ruTranslations : enTranslations
 	const [isOpen, setIsOpen] = useState(false)
@@ -18,10 +18,7 @@ export default function Header() {
 		language == 'ru' ? 'Выберите язык' : 'Select Language'
 	)
 
-	const options = ['Русский', 'English']
 	const [burgerOpen, setBurgerMenu] = useState(false)
-
-	
 
 	const toggleDropdown = () => {
 		setIsOpen(!isOpen)
@@ -33,6 +30,10 @@ export default function Header() {
 		setSelectedOption(option)
 		setIsOpen(false)
 	}
+
+	burgerOpen
+		? (document.body.style.overflow = 'hidden')
+		: (document.body.style.overflow = 'auto')
 
 	return (
 		<header className='header'>
@@ -49,27 +50,32 @@ export default function Header() {
 						<div className='header_content_links'>
 							<ul className='links-ul'>
 								<li className='links-li'>
-									<Link  className={`links-a ${isActiveHome ? 'active' : ''}`} to='/'>
+									<Link
+										className={`links-a ${isActiveHome ? 'active' : ''}`}
+										to='/'
+									>
 										{translations.home}
 									</Link>
 								</li>
+
 								<li className='links-li'>
-									<Link  className={`links-a ${isActiveAbout ? 'active' : ''}`} to='/about'>
-										{translations.about}
-									</Link>
-								</li>
-								<li className='links-li'>
-									<Link  className={`links-a ${isActivePortfolio ? 'active' : ''}`} to='/portfolio'>
+									<Link
+										className={`links-a ${isActivePortfolio ? 'active' : ''}`}
+										to='/portfolio'
+									>
 										{translations.portfolio}
 									</Link>
 								</li>
+
 								<li className='links-li'>
-									<Link className={`links-a ${isActiveNews ? 'active' : ''}`} to='/news'>
-										{translations.news}
-									</Link>
-								</li>
-								<li className='links-li'>
-									<a className='links-a' href='#'>
+									<a
+										onClick={() => {
+											setPopupOpen(true)
+											document.body.style.overflow = 'hidden'
+										}}
+										className='links-a'
+										href='#'
+									>
 										{translations.LeaveArequest}
 									</a>
 								</li>
