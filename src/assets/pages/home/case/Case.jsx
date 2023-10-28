@@ -35,8 +35,10 @@ const Case = ({ caseData, visibleProducts, showMore }) => {
 					{caseData.slice(0, visibleProducts).map(data => (
 						<CaseItem
 							key={data.id}
+							id={data.id}
 							name={data.name}
 							url={data.images[0]}
+							text={data.short_text}
 						/>
 					))}
 				</div>

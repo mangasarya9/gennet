@@ -8,9 +8,9 @@ import AutoPlay from './auto-play/AutoPlay'
 import Contact from './contact/Contact'
 
 const Home = ({ caseData }) => {
-	const [visibleProducts, setVisibleProducts] = useState(3)
+	const [visibleProducts, setVisibleProducts] = useState(4)
 	const showMore = () => {
-		setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 3)
+		setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 4)
 	}
 
 	return (

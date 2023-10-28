@@ -1,33 +1,12 @@
 .case {
 	text-align: center;
 	margin: 0 0 50px;
-	&-title {
-		color: #000000;
-		leading-trim: both;
-		text-edge: cap;
-		font-family: Inter;
-		font-size: 46px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: normal;
-		text-transform: uppercase;
-		margin-bottom: 10px;
-	}
-	&-subtitle {
-		color: #061b2e;
-		leading-trim: both;
-		text-edge: cap;
-		font-family: Inter;
-		font-size: 20px;
-		font-style: normal;
-		line-height: normal;
-		text-transform: uppercase;
-	}
 	&-item {
 		border-radius: 20px;
 		overflow: hidden;
 		position: relative;
 		z-index: 10;
+		height: 400px;
 		background-color: #00000000;
 		&:hover &__overlay {
 			position: absolute;
@@ -40,27 +19,28 @@
 			transform: scale(1.25);
 		}
 		&:hover &__name,
-		&:hover &__type {
+		&:hover &__text {
 			left: 24px;
 		}
 		&__img {
 			max-width: 100%;
-			height: 100%;
+			height: 400px;
+			transform: scale(1.15);
 			transition: all 0.5s ease-in-out;
 		}
-		&__type,
+		&__text,
 		&__name {
 			position: absolute;
-			left: -500px;
+			left: -5000px;
 			z-index: 50;
 			color: #fff;
 		}
-		&__name {
+		&__text {
 			bottom: 24px;
 			transition: all 0.7s ease-in-out;
 			font-size: 22px;
 		}
-		&__type {
+		&__name {
 			bottom: 64px;
 			transition: all 0.5s ease-in-out;
 			font-size: 26px;
@@ -69,8 +49,23 @@
 	&-flex {
 		display: grid;
 		gap: 30px;
-		grid-template-columns: repeat(3, 1fr);
-		margin: 56px 0;
+		grid-template-columns: repeat(2, 1fr);
+		margin-top: 56px;
+	}
+}
+img {
+	width: 100%;
+	height: 400px;
+}
+
+.detail-offer {
+	margin-top: 30px;
+	& h1 {
+		font-size: 33px;
+		margin-bottom: 20px;
+	}
+	& p {
+		margin-bottom: 40px;
 	}
 }
 

@@ -23,7 +23,7 @@ a {
 }
 
 .section {
-	padding-top: 100px;
+	padding: 100px 0;
 }
 
 .btn {
@@ -71,6 +71,13 @@ a {
 	animation: link_hover 1.5s;
 	transition: all 0.3s ease-in-out;
 }
+
+.grid-col-2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 30px;
+}
+
 .links-a.active::after {
 	content: '';
 	width: 100%;
@@ -106,6 +113,7 @@ a {
 	line-height: normal;
 	max-width: 620px;
 	margin: 0 auto;
+	margin-bottom: 56px;
 }
 
 @media (max-width: 769px) {

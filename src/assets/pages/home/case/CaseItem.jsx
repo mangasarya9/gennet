@@ -1,19 +1,15 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { fadeIn } from '../../../../variants'
-const CaseItem = ({ url, name }) => {
+// import { motion } from 'framer-motion'
+// import { fadeIn } from '../../../../variants'
+import { Link } from 'react-router-dom'
+const CaseItem = ({ id, url, name, text }) => {
 	return (
-		<motion.div
-			variants={fadeIn('left', 0.2)}
-			initial='hidden'
-			whileInView={'show'}
-			viewport={{ once: false, amount: 0.7 }}
-			className='case-item'
-		>
+		<Link className='case-item' to={`/project/${id}`}>
 			<div className='case-item__overlay'></div>
 			<img className='case-item__img' src={url} alt='' />
-			<p className='case-item__name'>{name}</p>
-		</motion.div>
+			<h3 className='case-item__name'>{name}</h3>
+			<p className='case-item__text'>{text}</p>
+		</Link>
 	)
 }
 
