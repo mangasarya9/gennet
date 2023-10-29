@@ -26,7 +26,6 @@ export default function Header({ setPopupOpen }) {
 
 	const selectOption = (language, option) => {
 		changeLanguage(language)
-		const newURL = `?lang=${language}`
 		setSelectedOption(option)
 		setIsOpen(false)
 	}
@@ -68,16 +67,15 @@ export default function Header({ setPopupOpen }) {
 								</li>
 
 								<li className='links-li'>
-									<a
+									<div
 										onClick={() => {
 											setPopupOpen(true)
 											document.body.style.overflow = 'hidden'
 										}}
 										className='links-a'
-										href='#'
 									>
 										{translations.LeaveArequest}
-									</a>
+									</div>
 								</li>
 							</ul>
 						</div>

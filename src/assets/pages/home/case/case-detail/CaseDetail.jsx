@@ -33,19 +33,12 @@ const CaseDetail = () => {
 					styles={{
 						display: 'flex',
 						alignItems: 'center',
-						justifyContent: 'center',
+						justifyContent: 'space-between',
 					}}
 				>
 					<div className=''>
 						<CaseSwiper image={image} />
 					</div>
-				</div>
-				<div className='detail-offer'>
-					<h1>{dataCase.name}</h1>
-					<p>{dataCase.long_text}</p>
-					<a href={dataCase.link} className='btn' target='_blank'>
-						Project-link
-					</a>
 				</div>
 			</div>
 		</div>

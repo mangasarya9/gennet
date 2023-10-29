@@ -1,15 +1,11 @@
 import React from 'react'
 import '../popup/Popup.scss'
 import { AiFillCloseCircle } from 'react-icons/ai'
+import { BsCloudDownloadFill } from 'react-icons/bs'
 const Popup = ({ setPopupOpen }) => {
 	return (
-		<div
-			className='popup'
-			onClick={() => {
-				document.body.style.overflow = 'auto'
-				setPopupOpen(false)
-			}}
-		>
+		<div className='popup'>
+			<div className='popup-overlay'></div>
 			<div className='popupBody'>
 				<button
 					className='popupBody-close'
@@ -37,9 +33,13 @@ const Popup = ({ setPopupOpen }) => {
 					></textarea>
 					<input
 						type='file'
+						id='file'
 						className='popupBody-form__input'
 						placeholder='Выберите файл'
 					/>
+					<label htmlFor='file' className='popupBody-form__label'>
+						<BsCloudDownloadFill className='label-icon' /> Оставьте тз
+					</label>
 					<input
 						type='text'
 						className='popupBody-form__input'

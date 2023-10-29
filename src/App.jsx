@@ -21,8 +21,13 @@ const App = () => {
 		}
 		fetchData()
 	}, [])
+
+	popupOpen
+		? (document.body.style.overflow = 'hidden')
+		: (document.body.style.overflow = 'auto')
+
 	return (
-		<body className={body ? 'body' : ''}>
+		<div className='app'>
 			<LanguageProvider>
 				<Header setPopupOpen={setPopupOpen} />
 				<Routes>
@@ -34,7 +39,7 @@ const App = () => {
 				<Footer />
 			</LanguageProvider>
 			{popupOpen && <Popup setPopupOpen={setPopupOpen} />}
-		</body>
+		</div>
 	)
 }
 

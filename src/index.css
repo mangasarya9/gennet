@@ -45,6 +45,7 @@ a {
 	font-weight: 400;
 	line-height: normal;
 	margin-bottom: 10px;
+	text-align: center;
 }
 
 .links-ul {
@@ -70,12 +71,6 @@ a {
 	display: none;
 	animation: link_hover 1.5s;
 	transition: all 0.3s ease-in-out;
-}
-
-.grid-col-2 {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 30px;
 }
 
 .links-a.active::after {
@@ -154,4 +149,8 @@ a {
 .flex {
 	display: flex;
 	gap: 20px;
+}
+
+.app {
+	position: relative;
 }

@@ -6,6 +6,7 @@ import Stages from './stages/Stages'
 import Request from './request/Request'
 import AutoPlay from './auto-play/AutoPlay'
 import Contact from './contact/Contact'
+import Work from './work/Work'
 
 const Home = ({ caseData }) => {
 	const [visibleProducts, setVisibleProducts] = useState(4)
@@ -17,6 +18,7 @@ const Home = ({ caseData }) => {
 		<div className='home'>
 			<div className='container'>
 				<Banner />
+				<Work />
 				<Case
 					caseData={caseData}
 					visibleProducts={visibleProducts}

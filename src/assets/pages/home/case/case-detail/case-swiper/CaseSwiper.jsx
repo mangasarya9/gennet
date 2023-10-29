@@ -7,7 +7,13 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 const CaseSwiper = ({ image }) => {
 	return (
-		<>
+		<div
+			styles={{
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'space-between',
+			}}
+		>
 			<Swiper
 				modules={[Navigation, Pagination, A11y]}
 				spaceBetween={50}
@@ -23,7 +29,14 @@ const CaseSwiper = ({ image }) => {
 					</SwiperSlide>
 				))}
 			</Swiper>
-		</>
+			<div className='detail-offer'>
+				<h1>{dataCase.name}</h1>
+				<p>{dataCase.long_text}</p>
+				<a href={dataCase.link} className='btn' target='_blank'>
+					Project-link
+				</a>
+			</div>
+		</div>
 	)
 }
 

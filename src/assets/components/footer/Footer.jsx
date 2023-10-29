@@ -21,23 +21,14 @@ const Footer = () => {
 							<a href='#'>{translations.partners}</a>
 						</li>
 						<li>
-							<a href='#'>{translations.news}</a>
-						</li>
-						<li>
 							<a href='#'>{translations.contacts}</a>
 						</li>
 
-						<li>
-							<a href='#'>{translations.LeaveArequest}</a>
-						</li>
 						<li>
 							<a href='#'>{translations.work}</a>
 						</li>
 						<li>
 							<a href='#'>{translations.cost}</a>
-						</li>
-						<li>
-							<a href='#'>{translations.about}</a>
 						</li>
 					</ul>
 				</div>

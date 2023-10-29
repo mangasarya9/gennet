@@ -33,6 +33,9 @@
 			outline: 0;
 		}
 	}
+	&-title.title {
+		text-align: start;
+	}
 }
 
 @media (max-width: 992px) {
@@ -43,7 +46,7 @@
 			display: none;
 		}
 		&-subtitle,
-		&-title {
+		&-title.title {
 			text-align: center;
 		}
 		.btn.contact-btn {

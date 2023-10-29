@@ -31,7 +31,7 @@ const Case = ({ caseData, visibleProducts, showMore }) => {
 				>
 					{translations.caseSubTitle}
 				</motion.p>
-				<div className='case-flex'>
+				<div className='case-flex mb-3'>
 					{caseData.slice(0, visibleProducts).map(data => (
 						<CaseItem
 							key={data.id}

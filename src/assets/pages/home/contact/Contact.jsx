@@ -18,7 +18,7 @@ const Contact = () => {
 					initial='hidden'
 					whileInView={'show'}
 					viewport={{ once: false, amount: 0.7 }}
-					className='title  contact-title'
+					className='title contact-title'
 				>
 					{translations.contactTitle}
 				</motion.h2>
