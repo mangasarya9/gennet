@@ -33,11 +33,11 @@ const CaseDetail = () => {
 					styles={{
 						display: 'flex',
 						alignItems: 'center',
-						justifyContent: 'space-between',
+						justifyContent: 'center',
 					}}
 				>
 					<div className=''>
-						<CaseSwiper image={image} />
+						<CaseSwiper dataCase={dataCase} image={image} />
 					</div>
 				</div>
 			</div>
