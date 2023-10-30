@@ -1,47 +1,45 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, A11y } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-const CaseSwiper = ({ dataCase, image }) => {
-	return (
-		<div
-			styles={{
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'space-between',
-			}}
-		>
-			<Swiper
-				modules={[Navigation, Pagination, A11y]}
-				spaceBetween={50}
-				slidesPerView={1}
-				navigation
-				pagination={{ clickable: true }}
-				onSwiper={swiper => console.log(swiper)}
-				onSlideChange={() => console.log('slide change')}
-			>
-				{image.map(data => (
-					<SwiperSlide>
-						<img className='img' src={data} />
-					</SwiperSlide>
-				))}
-			</Swiper>
-			<div className='detail-offer'>
-				<h1>{dataCase.name}</h1>
-				<p>{dataCase.long_text}</p>
-				<a href={dataCase.link} className='btn' target='_blank'>
-					Project-link
-				</a>
-			</div>
-		</div>
-	)
-}
+import React from 'react'
 
-CaseSwiper.propTypes = {
-	images: PropTypes.array.isRequired,
+const CaseSwiper = ({ dataCase }) => {
+	return (
+		<>
+			<div className=' detail-inner'>
+				<img className='detail-inner__img' src={dataCase.images[0]} alt='' />
+				<div className='detail-offer'>
+					<h1 className='title detail-offer__title '>{dataCase.name}</h1>
+					{dataCase.languages?.length ? (
+						<div>
+							<h3>Языки</h3>
+							<div className='detail-offer__languages'>
+								{dataCase.languages.map(data => (
+									<div className='detail-offer__language'>
+										<img src={data.icon_path} alt='' />
+										<p>{data.language}</p>
+									</div>
+								))}
+							</div>
+						</div>
+					) : (
+						''
+					)}
+					<div className='detail-inner__btn'>
+						<div className='detail-inner__grid'>
+							<button className='btn'>Заказать похожий проект</button>
+							<button className='btn'>Просмотреть файлы</button>
+						</div>
+						{dataCase.link ? (
+							<a href={dataCase.link} target='_blank' className='btn'>
+								Перейти на сайт
+							</a>
+						) : (
+							''
+						)}
+					</div>
+				</div>
+			</div>
+			<p>{dataCase.long_text}</p>
+		</>
+	)
 }
 
 export default CaseSwiper

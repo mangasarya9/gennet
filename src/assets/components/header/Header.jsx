@@ -9,8 +9,6 @@ export default function Header({ setPopupOpen }) {
 	const location = useLocation()
 	const isActivePortfolio = location.pathname === '/portfolio'
 	const isActiveHome = location.pathname === '/'
-	const isActiveAbout = location.pathname === '/about'
-	const isActiveNews = location.pathname === '/news'
 	const { language, changeLanguage } = useLanguage()
 	const translations = language === 'ru' ? ruTranslations : enTranslations
 	const [isOpen, setIsOpen] = useState(false)
@@ -67,13 +65,7 @@ export default function Header({ setPopupOpen }) {
 								</li>
 
 								<li className='links-li'>
-									<div
-										onClick={() => {
-											setPopupOpen(true)
-											document.body.style.overflow = 'hidden'
-										}}
-										className='links-a'
-									>
+									<div onClick={() => setPopupOpen(true)} className='links-a'>
 										{translations.LeaveArequest}
 									</div>
 								</li>

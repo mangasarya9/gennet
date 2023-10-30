@@ -25,21 +25,10 @@ const CaseDetail = () => {
 				<div className='container'>project id is not defend </div>
 			</div>
 		)
-	const image = dataCase.images
 	return (
 		<div className='section detail'>
 			<div className='container'>
-				<div
-					styles={{
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-					}}
-				>
-					<div className=''>
-						<CaseSwiper dataCase={dataCase} image={image} />
-					</div>
-				</div>
+				<CaseSwiper dataCase={dataCase} />
 			</div>
 		</div>
 	)

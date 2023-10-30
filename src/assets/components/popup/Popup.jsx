@@ -7,13 +7,7 @@ const Popup = ({ setPopupOpen }) => {
 		<div className='popup'>
 			<div className='popup-overlay'></div>
 			<div className='popupBody'>
-				<button
-					className='popupBody-close'
-					onClick={() => {
-						document.body.style.overflow = 'auto'
-						setPopupOpen(false)
-					}}
-				>
+				<button className='popupBody-close' onClick={() => setPopupOpen(false)}>
 					<AiFillCloseCircle className='icon' />
 				</button>
 				<form className='popupBody-form'>

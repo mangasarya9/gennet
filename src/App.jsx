@@ -12,8 +12,10 @@ import Popup from './assets/components/popup/Popup'
 const App = () => {
 	const [caseData, setCaseData] = useState([])
 	const [popupOpen, setPopupOpen] = useState(false)
-	const [body, setBody] = useState(true)
-
+	popupOpen
+		? (document.body.style.overflow = 'hidden')
+		: (document.body.style.overflow = 'auto')
+	console.log(popupOpen)
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await CarService.getAll()
@@ -21,10 +23,6 @@ const App = () => {
 		}
 		fetchData()
 	}, [])
-
-	popupOpen
-		? (document.body.style.overflow = 'hidden')
-		: (document.body.style.overflow = 'auto')
 
 	return (
 		<div className='app'>
