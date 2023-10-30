@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../../variants'
-const WorkItem = () => {
+const WorkItem = ({title, text, icon}) => {
 	return (
 		<motion.div
 			variants={fadeIn('right', 0.2)}
@@ -10,12 +10,10 @@ const WorkItem = () => {
 			viewport={{ once: false, amount: 0.7 }}
 			className='work-item'
 		>
-			<img src='./brand.png' alt='' />
-			<h3 className='work-item__title'>Бренд с нуля</h3>
+			<img src={icon} alt='' />
+			<h3 className='work-item__title'>{title}</h3>
 			<p className='work-item__p'>
-				Создание уникального бренда – ключевой фактор успеха любого. Наши
-				специалисты по брендингу помогут вам выделиться на рынке, разработав
-				уникальный стиль и имидж для вашей компании.
+				{text}
 			</p>
 		</motion.div>
 	)
