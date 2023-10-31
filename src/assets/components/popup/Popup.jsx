@@ -27,6 +27,7 @@ const Popup = ({ setPopupOpen }) => {
 						placeholder={translations.popup_name}
 					/>
 					<textarea
+					style={{ maxHeight: '500px', resize: 'height' }}
 						placeholder={translations.popup_task}
 						className='popupBody-form__input'
 					></textarea>
