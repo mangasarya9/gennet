@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, lazy } from 'react'
 import { Link } from 'react-router-dom'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
@@ -11,8 +11,11 @@ import axios from 'axios'
 
 const Project = () => {
 	const [filteredData, setFilteredData] = useState([])
+	const [noItems, setNoItems] =useState(false)
 	const [filteredDataLanguage, setFilteredDataLanguage] = useState([])
 	const [selectedCategory, setSelectedCategory] = useState([])
+	const [isLoading, setIsLoading] = useState(false);
+
 	const prevSelectedCategoryRef = useRef()
 
 	useEffect(() => {
@@ -32,9 +35,10 @@ const Project = () => {
 	}, [])
 	useEffect(() => {
 		const fetchData = async () => {
+			setIsLoading(true); 
 			try {
-				const languages = selectedCategory.map(item => item.value)
-
+				const languages = selectedCategory.map(item => item.value.language)
+			
 				const response = await axios.post(
 					'http://menua7u0.beget.tech/api/projects/filter',
 					{
@@ -43,8 +47,16 @@ const Project = () => {
 				)
 
 				setFilteredData(response.data.data)
-				console.log(filteredData)
+			
+
+				if(response.data.data.length == 0){
+					
+					setNoItems(true)
+				}
+				setIsLoading(false);
+				
 			} catch (error) {
+				setIsLoading(false);
 				console.error('Failed to fetch data:', error)
 			}
 		}
@@ -62,8 +74,10 @@ const Project = () => {
 
 	const categoryOptions = filteredDataLanguage.map(category => ({
 		value: category,
-		label: category,
+		label: category.language,  // must be a string
+	icon_path: category.icon_path  // optional, if you need it
 	}))
+	
 	const { language } = useLanguage()
 	const translations = language === 'ru' ? ruTranslations : enTranslations
 	const selectPlaceholder =
@@ -85,6 +99,7 @@ const Project = () => {
 					<Select
 						options={categoryOptions}
 						isMulti
+						isClearable
 						placeholder={selectPlaceholder}
 						className='select'
 						onChange={categoryOption => {
@@ -100,19 +115,29 @@ const Project = () => {
 				</div>
 
 				<div className='case-flex'>
-					{filteredData.length ? (
-						filteredData.map(data => (
-							<CaseItem
-								key={data.id}
-								id={data.id}
-								name={data.name}
-								text={data.short_text}
-								url={data.images[0]}
-							/>
-						))
-					) : (
-						<div>loading...</div>
-					)}
+				{ isLoading ? (
+      <div id="loading" className="loading-wrapper">
+        <div className="loader"></div>
+      </div>
+    ) : (
+      filteredData.length ? (
+        filteredData.map(data => (
+          <CaseItem
+            key={data.id}
+            id={data.id}
+            name={data.name}
+            text={data.short_text}
+            url={data.images[0]}
+          />
+        ))
+      ) : (
+		noItems ?
+        <div>No items found.</div>
+		:  <div id="loading" className="loading-wrapper">
+        <div className="loader"></div>
+      </div>
+      )
+    )}
 				</div>
 			</div>
 		</div>

@@ -72,13 +72,13 @@ export default function Header({ setPopupOpen }) {
 								</li>
 
 								<li className='links-li'>
-									<div onClick={() => {
+									<a onClick={() => {
 										
 										setPopupOpen(true)
 										
 										}} className='links-a'>
 										{translations.LeaveArequest}
-									</div>
+									</a>
 								</li>
 							</ul>
 						</div>
