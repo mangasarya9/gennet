@@ -4,10 +4,11 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 import { BsCloudDownloadFill } from 'react-icons/bs'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
+import { useLanguage } from '../../../LanguageContext'
 
-const Popup = ({ setPopupOpen }) => {
-	const translations =
-		localStorage.getItem('language') === 'ru' ? enTranslations : ruTranslations
+const PopupSite = ({ setPopupSite, dataCase }) => {
+	const { language } = useLanguage()
+	const translations = language === 'en' ? enTranslations : ruTranslations
 
 	return (
 		<div className='popup'>
@@ -16,25 +17,35 @@ const Popup = ({ setPopupOpen }) => {
 				<button
 					className='popupBody-close'
 					onClick={() => {
-						setPopupOpen(false)
+						setPopupSite(false)
 					}}
 				>
 					<AiFillCloseCircle className='icon' />
 				</button>
 				<form className='popupBody-form'>
+					<div className=''>
+						<img
+							className='popupBody-form_img'
+							src={dataCase.images[0]}
+							alt=''
+						/>
+						<p className='popupBody-form_name'>
+							{language == 'ru' ? dataCase.rus_name : dataCase.name}
+						</p>
+					</div>
 					<input
 						type='text'
 						className='popupBody-form__input'
 						placeholder={translations.popup_name}
 					/>
 					<textarea
-						style={{ maxHeight: '500px', resize: 'height' }}
+						style={{ maxHeight: '52px', resize: 'height' }}
 						placeholder={translations.popup_task}
 						className='popupBody-form__input'
 					></textarea>
 					<input type='file' id='file' className='popupBody-form__input' />
 					<label htmlFor='file' className='popupBody-form__label'>
-						<BsCloudDownloadFill className='label-icon' />{' '}
+						<BsCloudDownloadFill className='label-icon' />
 						{translations.popup_file}
 					</label>
 					<input
@@ -56,4 +67,4 @@ const Popup = ({ setPopupOpen }) => {
 	)
 }
 
-export default Popup
+export default PopupSite
