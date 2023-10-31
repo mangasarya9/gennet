@@ -45,15 +45,16 @@ const Project = () => {
 						languages: languages,
 					}
 				)
-
+				setIsLoading(false);
 				setFilteredData(response.data.data)
-			
+				setNoItems(false)
 
 				if(response.data.data.length == 0){
 					
 					setNoItems(true)
+					console.log(true);
 				}
-				setIsLoading(false);
+				
 				
 			} catch (error) {
 				setIsLoading(false);
@@ -99,7 +100,7 @@ const Project = () => {
 					<Select
 						options={categoryOptions}
 						isMulti
-						isClearable
+						
 						placeholder={selectPlaceholder}
 						className='select'
 						onChange={categoryOption => {
@@ -114,7 +115,7 @@ const Project = () => {
 					/>
 				</div>
 
-				<div className='case-flex'>
+				<div className={noItems ? 'caseFlex-centered' : 'case-flex'}>
 				{ isLoading ? (
       <div id="loading" className="loading-wrapper">
         <div className="loader"></div>
@@ -132,7 +133,13 @@ const Project = () => {
         ))
       ) : (
 		noItems ?
-        <div>{translations.no_items_project}</div>
+        <div>
+			{/* <p>{translations.no_items_project}</p> */}
+		<img 
+		style={{ width:"500px", height:'500px' }}
+		src="/ill.jpg" alt="" />
+		</div>
+		// {document.querySelector('.caseFlex')}
 		:  <div id="loading" className="loading-wrapper">
         <div className="loader"></div>
       </div>
