@@ -132,7 +132,7 @@ const Project = () => {
         ))
       ) : (
 		noItems ?
-        <div>No items found.</div>
+        <div>{translations.no_items_project}</div>
 		:  <div id="loading" className="loading-wrapper">
         <div className="loader"></div>
       </div>

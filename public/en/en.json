@@ -38,5 +38,6 @@
 	"partners": "Partners",
 	"work": "Our works",
 	"cost": "Service cost",
-	"contacts": "Contacts"
+	"contacts": "Contacts",
+	"no_items_project" : "Couldnt find items with selected languages"
 }
