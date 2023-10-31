@@ -10,10 +10,10 @@ export const Services = {
 	},
 	async filterDataLanguage() {
 		const response = await axios.get('http://menua7u0.beget.tech/api/languages')
-		return response.data
+		return response.data.data
 	},
 	async languages() {
-		const response = await axios.post('http://menua7u0.beget.tech/api/languages')
+		const response = await axios.get('http://menua7u0.beget.tech/api/languages')
 		
 		return response.data.data
 	},

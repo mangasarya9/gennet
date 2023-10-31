@@ -7,6 +7,7 @@ export const LanguageProvider = ({ children }) => {
 
 	const changeLanguage = newLanguage => {
 		setLanguage(newLanguage)
+		localStorage.setItem('language',language)
 	}
 
 	return (

@@ -26,6 +26,7 @@ export default function Header({ setPopupOpen }) {
 		changeLanguage(language)
 		setSelectedOption(option)
 		setIsOpen(false)
+		
 	}
 
 	burgerOpen
@@ -37,7 +38,13 @@ export default function Header({ setPopupOpen }) {
 			<div className='container'>
 				<div className='header_content'>
 					<div className='header_content-logo'>
-						<h1>Gennet</h1>
+					<Link
+										className={`links-a ${isActiveHome ? 'active' : ''}`}
+										to='/'
+									>
+										<h1>Gennet</h1>
+									</Link>
+						
 					</div>
 					<div
 						className={
@@ -65,7 +72,11 @@ export default function Header({ setPopupOpen }) {
 								</li>
 
 								<li className='links-li'>
-									<div onClick={() => setPopupOpen(true)} className='links-a'>
+									<div onClick={() => {
+										
+										setPopupOpen(true)
+										
+										}} className='links-a'>
 										{translations.LeaveArequest}
 									</div>
 								</li>

@@ -28,7 +28,7 @@ const CaseDetail = () => {
 	return (
 		<div className='section detail'>
 			<div className='container'>
-				<CaseSwiper dataCase={dataCase} />
+				<CaseSwiper key={dataCase.id} dataCase={dataCase} />
 			</div>
 		</div>
 	)

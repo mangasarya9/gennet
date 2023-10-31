@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../auto-play/AutoPlay.scss'
+import { Services } from '../../../../services/services'
 
 const AutoPlay = () => {
+	const [languages, setLanguages] = useState([]);
+	useEffect(() => {
+		const fetchData = async () => {
+		  const languages = await Services.languages()
+		  setLanguages(languages);
+		}
+		fetchData()
+	  }, [])
 	const settings = {
 		infinite: true,
 		slidesToShow: 9,
@@ -40,36 +49,17 @@ const AutoPlay = () => {
 	return (
 		<div className='autoplay-border'>
 			<Slider {...settings}>
-				<div className=''>
-					<img className='autoplay' src='./figma.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./react.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./laravel.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./js.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./php.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./python.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./flatter.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./vue.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./figma.svg' alt='' />
-				</div>
-				<div className=''>
-					<img className='autoplay' src='./react.svg' alt='' />
-				</div>
+			
+				{
+					languages.map(
+						data => (
+							<div className=''>
+								<img className='autoplay' src={data.icon_path} alt='' />
+							</div>
+						)
+					)
+				}
+			
 			</Slider>
 		</div>
 	)
