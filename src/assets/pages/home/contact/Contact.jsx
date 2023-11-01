@@ -7,6 +7,14 @@ import { motion } from 'framer-motion'
 import { fadeIn } from '../../../../variants'
 
 const Contact = () => {
+	const validateInput = (event) => {
+		const key = event.key;
+		if (key === '+' || (key >= '0' && key <= '9')) {
+		  return true;
+		}
+		event.preventDefault();
+		return false;
+	  };
 	const { language } = useLanguage()
 	const translations = language === 'en' ? enTranslations : ruTranslations
 
@@ -45,7 +53,8 @@ const Contact = () => {
 							placeholder={translations.name}
 						/>
 						<input
-							type='tel:'
+							type="tel"
+							 onKeyPress={validateInput}
 							className='contact-form__input'
 							placeholder={translations.phone}
 						/>
@@ -64,7 +73,7 @@ const Contact = () => {
 				viewport={{ once: false, amount: 0.7 }}
 				className='contact-img'
 			>
-				<img src='./contact.png' alt='' />
+				<img src='./contact.jpg' alt='' />
 			</motion.div>
 		</div>
 	)

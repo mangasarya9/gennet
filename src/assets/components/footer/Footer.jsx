@@ -13,26 +13,23 @@ const Footer = () => {
 				<div className='footer-inner'>
 					<div className='footer-logo'>Gennet</div>
 
+					
 					<ul className='footer-links'>
 						<li>
-							<a href='#'>{translations.team}</a>
+							<a href='#'>{translations.home}</a>
 						</li>
 						<li>
-							<a href='#'>{translations.partners}</a>
+							<a href='#'>{translations.LeaveArequest}</a>
 						</li>
 						<li>
-							<a href='#'>{translations.contacts}</a>
+							<a href='#'>{translations.portfolio}</a>
 						</li>
 
-						<li>
-							<a href='#'>{translations.work}</a>
-						</li>
-						<li>
-							<a href='#'>{translations.cost}</a>
-						</li>
+						
+						
 					</ul>
-				</div>
-			</div>
+					</div>
+					</div>
 		</footer>
 	)
 }

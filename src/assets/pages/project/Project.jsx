@@ -136,7 +136,7 @@ const Project = () => {
         <div>
 			{/* <p>{translations.no_items_project}</p> */}
 		<img 
-		style={{ width:"500px", height:'500px' }}
+		style={{height:'500px' }}
 		src="./ill.jpg" alt="" />
 		</div>
 		// {document.querySelector('.caseFlex')}
