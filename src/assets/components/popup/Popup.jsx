@@ -4,11 +4,22 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 import { BsCloudDownloadFill } from 'react-icons/bs'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
+import Select from 'react-select'
 
 const Popup = ({ setPopupOpen }) => {
 	const translations =
 		localStorage.getItem('language') === 'ru' ? enTranslations : ruTranslations
-
+	const options = [
+		{
+			label: 'RUB',
+		},
+		{
+			label: 'USD',
+		},
+		{
+			label: 'USDT',
+		},
+	]
 	return (
 		<div className='popup'>
 			<div className='popup-overlay'></div>
@@ -37,11 +48,14 @@ const Popup = ({ setPopupOpen }) => {
 						<BsCloudDownloadFill className='label-icon' />{' '}
 						{translations.popup_file}
 					</label>
-					<input
-						type='text'
-						className='popupBody-form__input'
-						placeholder={translations.popup_budget}
-					/>
+					<div className='popupBody-form__grid'>
+						<input
+							type='text'
+							className='popupBody-form__input'
+							placeholder={translations.popup_budget}
+						/>
+						<Select options={options} isSearchable={false} />
+					</div>
 					<input
 						type='text'
 						className='popupBody-form__input'

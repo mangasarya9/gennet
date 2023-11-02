@@ -23,34 +23,34 @@ const Work = () => {
 			</motion.h2>
 			<div className='work-grid'>
 				<WorkItem
-				title = {"Мобильные приложения"}
-				text = {'В эпоху мобильности наличие приложения — неотъемлемая часть успешного бизнеса. Наши разработчики создают высокопроизводительные и интуитивно понятные мобильные приложения, которые удовлетворят потребности ваших клиентов.'}
-				icon={'/app.svg'}
+					title={translations.aboutItemText1}
+					text={translations.aboutItemInfo1}
+					icon={'/app.svg'}
 				/>
 				<WorkItem
-				title = {"UX/UI Дизайн"}
-				text = {'Разработка интуитивных и привлекательных пользовательских интерфейсов, которые обеспечивают простое и приятное взаимодействие с вашим продуктом'}
-				icon={'/ui.svg'}
-				/>
-				<WorkItem 
-				title = {"Разработка веб-сайтов"}
-				text = {'От простого лендинга до сложного корпоративного сайта — мы предоставляем полный спектр услуг по веб-разработке. Современный дизайн, высокая скорость загрузки и юзабилити — все это вы получите, обратившись к нам.'}
-				icon={'/web.svg'}
+					title={translations.aboutItemText2}
+					text={translations.aboutItemInfo2}
+					icon={'/ui.svg'}
 				/>
 				<WorkItem
-				title = {"Поддержка и обслуживание"}
-				text = {'После запуска продукта его жизненный цикл только начинается. Мы предлагаем комплексные услуги по поддержке и обновлению вашего продукта, чтобы он всегда оставался актуальным и конкурентоспособным.'}
-				icon={'/support.svg'}
-				/> 
-				<WorkItem 
-				title = {"QA и тестирование"}
-				text = {'Обеспечение качества и стабильности вашего продукта путем проведения тщательного тестирования на всех этапах разработки.'}
-				icon={'/testing.svg'}
+					title={translations.aboutItemText3}
+					text={translations.aboutItemInfo3}
+					icon={'/web.svg'}
 				/>
 				<WorkItem
-				title = {"Сайт 'под ключ'"}
-				text = {'Комплексная услуга, которая включает в себя все этапы создания веб-сайта: от идеи и дизайна до разработки, тестирования и запуска. Мы также предлагаем последующую поддержку и обновление сайта, чтобы он всегда соответствовал требованиям рынка и потребностям пользователей.'}
-				icon={'/kluch.svg'}
+					title={translations.aboutItemText4}
+					text={translations.aboutItemInfo4}
+					icon={'/support.svg'}
+				/>
+				<WorkItem
+					title={translations.aboutItemText5}
+					text={translations.aboutItemInfo5}
+					icon={'/testing.svg'}
+				/>
+				<WorkItem
+					title={translations.aboutItemText6}
+					text={translations.aboutItemInfo6}
+					icon={'/kluch.svg'}
 				/>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, lazy } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import enTranslations from '/public/en/en.json'
 import ruTranslations from '/public/ru/ru.json'
@@ -11,10 +11,10 @@ import axios from 'axios'
 
 const Project = () => {
 	const [filteredData, setFilteredData] = useState([])
-	const [noItems, setNoItems] =useState(false)
+	const [noItems, setNoItems] = useState(false)
 	const [filteredDataLanguage, setFilteredDataLanguage] = useState([])
 	const [selectedCategory, setSelectedCategory] = useState([])
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(false)
 
 	const prevSelectedCategoryRef = useRef()
 
@@ -35,29 +35,26 @@ const Project = () => {
 	}, [])
 	useEffect(() => {
 		const fetchData = async () => {
-			setIsLoading(true); 
+			setIsLoading(true)
 			try {
 				const languages = selectedCategory.map(item => item.value.language)
-			
+
 				const response = await axios.post(
 					'http://menua7u0.beget.tech/api/projects/filter',
 					{
 						languages: languages,
 					}
 				)
-				setIsLoading(false);
+				setIsLoading(false)
 				setFilteredData(response.data.data)
 				setNoItems(false)
 
-				if(response.data.data.length == 0){
-					
+				if (response.data.data.length == 0) {
 					setNoItems(true)
-					console.log(true);
+					console.log(true)
 				}
-				
-				
 			} catch (error) {
-				setIsLoading(false);
+				setIsLoading(false)
 				console.error('Failed to fetch data:', error)
 			}
 		}
@@ -75,10 +72,10 @@ const Project = () => {
 
 	const categoryOptions = filteredDataLanguage.map(category => ({
 		value: category,
-		label: category.language,  // must be a string
-	icon_path: category.icon_path  // optional, if you need it
+		label: category.language, // must be a string
+		icon_path: category.icon_path, // optional, if you need it
 	}))
-	
+
 	const { language } = useLanguage()
 	const translations = language === 'ru' ? ruTranslations : enTranslations
 	const selectPlaceholder =
@@ -100,7 +97,6 @@ const Project = () => {
 					<Select
 						options={categoryOptions}
 						isMulti
-						
 						placeholder={selectPlaceholder}
 						className='select'
 						onChange={categoryOption => {
@@ -116,35 +112,31 @@ const Project = () => {
 				</div>
 
 				<div className={noItems ? 'caseFlex-centered' : 'case-flex'}>
-				{ isLoading ? (
-      <div id="loading" className="loading-wrapper">
-        <div className="loader"></div>
-      </div>
-    ) : (
-      filteredData.length ? (
-        filteredData.map(data => (
-          <CaseItem
-            key={data.id}
-            id={data.id}
-            name={data.name}
-            text={data.short_text}
-            url={data.images[0]}
-          />
-        ))
-      ) : (
-		noItems ?
-        <div>
-			{/* <p>{translations.no_items_project}</p> */}
-		<img 
-		style={{height:'500px' }}
-		src="./ill.jpg" alt="" />
-		</div>
-		// {document.querySelector('.caseFlex')}
-		:  <div id="loading" className="loading-wrapper">
-        <div className="loader"></div>
-      </div>
-      )
-    )}
+					{isLoading ? (
+						<div id='loading' className='loading-wrapper'>
+							<div className='loader'></div>
+						</div>
+					) : filteredData.length ? (
+						filteredData.map(data => (
+							<CaseItem
+								key={data.id}
+								id={data.id}
+								name={data.name}
+								text={data.short_text}
+								url={data.images[0]}
+							/>
+						))
+					) : noItems ? (
+						<div>
+							{/* <p>{translations.no_items_project}</p> */}
+							<img style={{ height: '500px' }} src='./ill.jpg' alt='' />
+						</div>
+					) : (
+						// {document.querySelector('.caseFlex')}
+						<div id='loading' className='loading-wrapper'>
+							<div className='loader'></div>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>

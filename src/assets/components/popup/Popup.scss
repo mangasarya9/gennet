@@ -53,6 +53,11 @@
 				display: flex;
 				gap: 10px;
 			}
+			&__grid {
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				gap: 10px;
+			}
 			&_name {
 				font-size: 28px;
 			}
@@ -65,11 +70,14 @@
 				padding: 10px;
 			}
 			&__input {
-				max-width: 330px;
+				max-width: 100%;
 				padding: 10px;
 				border: 1px solid #061b2e5d;
 				border-radius: 10px;
 				outline: 0;
+			}
+			textarea {
+				max-width: 330px;
 			}
 			&__label {
 				display: flex;
@@ -118,5 +126,18 @@ input[type='file'] {
 			background-size: cover;
 			border-radius: 10px;
 		}
+	}
+}
+
+@media (max-width: 393px) {
+	.popupBody-form__grid {
+		& .popupBody-form__input {
+			max-width: 130px;
+		}
+	}
+	.popup .popupBody-form__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
 	}
 }
